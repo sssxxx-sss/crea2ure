@@ -1,92 +1,194 @@
-// Architectural superformula shapes
-// Arches, vaults, columns, buttresses, tracery, rose windows
+// Architectural silhouettes - SVG paths
+// Each shape is a recognizable architectural element
 
 const shapes = [
-    // Pointed arches (Gothic)
-    { m: 2, n1: 1.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 2, n1: 1.5, n2: 0.3, n3: 0.3, a: 1, b: 1 },
-    { m: 2, n1: 2.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 2, n1: 1.0, n2: 0.3, n3: 0.3, a: 1, b: 1 },
-    { m: 2, n1: 1.2, n2: 0.4, n3: 0.4, a: 1, b: 1 },
-    { m: 2, n1: 0.8, n2: 0.3, n3: 0.3, a: 1, b: 1 },
+    // === ARCHES ===
 
-    // Rounded arches (Romanesque)
-    { m: 2, n1: 2.0, n2: 2.0, n3: 2.0, a: 1, b: 1 },
-    { m: 2, n1: 3.0, n2: 3.0, n3: 3.0, a: 1, b: 1 },
-    { m: 2, n1: 4.0, n2: 4.0, n3: 4.0, a: 1, b: 1 },
-    { m: 2, n1: 5.0, n2: 5.0, n3: 5.0, a: 1, b: 1 },
-    { m: 2, n1: 3.0, n2: 2.0, n3: 2.0, a: 1, b: 1 },
-    { m: 2, n1: 4.0, n2: 3.0, n3: 3.0, a: 1, b: 1 },
+    // Gothic pointed arch (tall)
+    "M -0.35 1 L -0.35 0.1 C -0.35 -0.3 -0.15 -0.7 0 -0.8 C 0.15 -0.7 0.35 -0.3 0.35 0.1 L 0.35 1 Z",
 
-    // Elongated arches (nave sections)
-    { m: 2, n1: 1.0, n2: 0.5, n3: 0.5, a: 0.6, b: 1.4 },
-    { m: 2, n1: 2.0, n2: 2.0, n3: 2.0, a: 0.5, b: 1.5 },
-    { m: 2, n1: 1.5, n2: 0.5, n3: 0.5, a: 0.7, b: 1.3 },
-    { m: 2, n1: 1.0, n2: 0.5, n3: 0.5, a: 0.5, b: 1.5 },
-    { m: 2, n1: 3.0, n2: 3.0, n3: 3.0, a: 0.6, b: 1.4 },
+    // Gothic pointed arch (wide)
+    "M -0.6 1 L -0.6 0.2 C -0.6 -0.1 -0.3 -0.5 0 -0.55 C 0.3 -0.5 0.6 -0.1 0.6 0.2 L 0.6 1 Z",
 
-    // Vault cross-sections
-    { m: 4, n1: 1.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 4, n1: 1.5, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 4, n1: 2.0, n2: 1.0, n3: 1.0, a: 1, b: 1 },
-    { m: 4, n1: 1.0, n2: 1.0, n3: 1.0, a: 1, b: 1 },
-    { m: 4, n1: 0.8, n2: 0.5, n3: 0.5, a: 1, b: 1 },
+    // Romanesque rounded arch
+    "M -0.5 1 L -0.5 0 C -0.5 -0.5 0 -0.5 0 -0.5 C 0 -0.5 0.5 -0.5 0.5 0 L 0.5 1 Z",
 
-    // Ribbed vaults
-    { m: 6, n1: 1.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 6, n1: 1.5, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 6, n1: 2.0, n2: 1.0, n3: 1.0, a: 1, b: 1 },
-    { m: 8, n1: 1.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 8, n1: 1.5, n2: 0.5, n3: 0.5, a: 1, b: 1 },
+    // Romanesque arch (wide)
+    "M -0.7 1 L -0.7 0.1 C -0.7 -0.4 0 -0.4 0 -0.4 C 0 -0.4 0.7 -0.4 0.7 0.1 L 0.7 1 Z",
 
-    // Column profiles
-    { m: 4, n1: 3.0, n2: 3.0, n3: 3.0, a: 0.6, b: 1.4 },
-    { m: 4, n1: 4.0, n2: 4.0, n3: 4.0, a: 0.5, b: 1.5 },
-    { m: 6, n1: 3.0, n2: 3.0, n3: 3.0, a: 0.7, b: 1.3 },
-    { m: 4, n1: 2.0, n2: 2.0, n3: 2.0, a: 0.6, b: 1.4 },
+    // Ogee arch (S-curve)
+    "M -0.4 1 C -0.4 0.4 -0.2 -0.3 0 -0.5 C 0.2 -0.3 0.4 0.4 0.4 1 Z",
 
-    // Apse shapes
-    { m: 3, n1: 1.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 3, n1: 2.0, n2: 1.0, n3: 1.0, a: 1, b: 1 },
-    { m: 3, n1: 1.5, n2: 0.5, n3: 0.5, a: 0.8, b: 1.2 },
-    { m: 3, n1: 1.0, n2: 0.5, n3: 0.5, a: 0.6, b: 1.4 },
+    // Horseshoe arch
+    "M -0.5 1 C -0.5 0.3 -0.6 -0.3 0 -0.6 C 0.6 -0.3 0.5 0.3 0.5 1 Z",
 
-    // Buttress profiles
-    { m: 4, n1: 0.5, n2: 0.5, n3: 0.5, a: 0.5, b: 1.5 },
-    { m: 4, n1: 0.7, n2: 0.3, n3: 0.3, a: 0.6, b: 1.4 },
-    { m: 4, n1: 0.6, n2: 0.4, n3: 0.4, a: 0.5, b: 1.5 },
+    // Depressed arch
+    "M -0.7 1 L -0.7 0.3 C -0.7 0 -0.35 -0.2 0 -0.25 C 0.35 -0.2 0.7 0 0.7 0.3 L 0.7 1 Z",
 
-    // Dome sections
-    { m: 2, n1: 3.0, n2: 2.0, n3: 2.0, a: 1, b: 1 },
-    { m: 2, n1: 4.0, n2: 3.0, n3: 3.0, a: 0.8, b: 1.2 },
-    { m: 2, n1: 5.0, n2: 4.0, n3: 4.0, a: 0.7, b: 1.3 },
-    { m: 2, n1: 3.0, n2: 2.0, n3: 2.0, a: 0.6, b: 1.4 },
+    // Tudor arch
+    "M -0.5 1 L -0.5 0.2 C -0.5 -0.1 -0.3 -0.2 0 -0.5 C 0.3 -0.2 0.5 -0.1 0.5 0.2 L 0.5 1 Z",
 
-    // Tracery patterns
-    { m: 6, n1: 0.8, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 8, n1: 0.8, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 10, n1: 0.8, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 12, n1: 0.8, n2: 0.5, n3: 0.5, a: 1, b: 1 },
+    // Trefoil arch
+    "M -0.4 1 L -0.4 0 C -0.4 -0.2 -0.2 -0.3 0 -0.5 C 0.2 -0.3 0.4 -0.2 0.4 0 L 0.4 1 Z",
 
-    // Rose window approximations
-    { m: 8, n1: 2.0, n2: 2.0, n3: 2.0, a: 1, b: 1 },
-    { m: 10, n1: 2.0, n2: 2.0, n3: 2.0, a: 1, b: 1 },
-    { m: 12, n1: 2.0, n2: 2.0, n3: 2.0, a: 1, b: 1 },
-    { m: 6, n1: 1.5, n2: 1.5, n3: 1.5, a: 1, b: 1 },
+    // Parabolic arch
+    "M -0.6 1 C -0.6 0.2 -0.3 -0.5 0 -0.6 C 0.3 -0.5 0.6 0.2 0.6 1 Z",
 
-    // Mixed architectural
-    { m: 5, n1: 1.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 5, n1: 2.0, n2: 1.0, n3: 1.0, a: 1, b: 1 },
-    { m: 7, n1: 1.0, n2: 0.5, n3: 0.5, a: 1, b: 1 },
-    { m: 7, n1: 2.0, n2: 1.0, n3: 1.0, a: 1, b: 1 },
-    { m: 5, n1: 1.5, n2: 0.5, n3: 0.5, a: 0.7, b: 1.3 },
-    { m: 7, n1: 1.5, n2: 0.5, n3: 0.5, a: 0.8, b: 1.2 },
+    // === COLUMNS ===
 
-    // More elongated forms
-    { m: 2, n1: 1.0, n2: 0.5, n3: 0.5, a: 0.5, b: 1.5 },
-    { m: 2, n1: 2.0, n2: 2.0, n3: 2.0, a: 0.4, b: 1.6 },
-    { m: 3, n1: 1.0, n2: 0.5, n3: 0.5, a: 0.6, b: 1.4 },
-    { m: 4, n1: 1.5, n2: 0.5, n3: 0.5, a: 0.5, b: 1.5 },
+    // Doric column
+    "M -0.3 1 L -0.3 0.9 L -0.25 0.9 L -0.2 0.15 L -0.3 0.1 L -0.35 0.1 L -0.35 0.05 L 0.35 0.05 L 0.35 0.1 L 0.3 0.1 L 0.2 0.15 L 0.25 0.9 L 0.3 0.9 L 0.3 1 Z",
+
+    // Simple column
+    "M -0.3 1 L -0.3 0.9 L -0.2 0.9 L -0.15 0.1 L -0.3 0.05 L 0.3 0.05 L 0.15 0.1 L 0.2 0.9 L 0.3 0.9 L 0.3 1 Z",
+
+    // Ionic column (with volutes suggested)
+    "M -0.3 1 L -0.3 0.85 L -0.25 0.85 L -0.15 0.15 L -0.35 0.05 L -0.35 -0.05 L -0.2 -0.1 L 0.2 -0.1 L 0.35 -0.05 L 0.35 0.05 L 0.15 0.15 L 0.25 0.85 L 0.3 0.85 L 0.3 1 Z",
+
+    // Tall thin column
+    "M -0.15 1 L -0.15 0.85 L -0.1 0.85 L -0.08 0.1 L -0.15 0.05 L 0.15 0.05 L 0.08 0.1 L 0.1 0.85 L 0.15 0.85 L 0.15 1 Z",
+
+    // Square pillar
+    "M -0.35 1 L -0.35 0.05 L 0.35 0.05 L 0.35 1 Z",
+
+    // Column with base
+    "M -0.35 1 L -0.35 0.9 L -0.2 0.9 L -0.15 0.1 L -0.25 0.05 L 0.25 0.05 L 0.15 0.1 L 0.2 0.9 L 0.35 0.9 L 0.35 1 Z",
+
+    // Twin columns
+    "M -0.45 1 L -0.45 0.85 L -0.35 0.85 L -0.3 0.1 L -0.4 0.05 L -0.15 0.05 L -0.2 0.1 L -0.15 0.85 L -0.05 0.85 L -0.05 1 Z M 0.05 1 L 0.05 0.85 L 0.15 0.85 L 0.2 0.1 L 0.15 0.05 L 0.4 0.05 L 0.3 0.1 L 0.35 0.85 L 0.45 0.85 L 0.45 1 Z",
+
+    // === WINDOWS ===
+
+    // Lancet window (tall narrow)
+    "M -0.15 1 L -0.15 0 C -0.15 -0.3 0 -0.6 0 -0.6 C 0 -0.6 0.15 -0.3 0.15 0 L 0.15 1 Z",
+
+    // Rose window
+    "M 0 -0.8 C 0.45 -0.8 0.8 -0.45 0.8 0 C 0.8 0.45 0.45 0.8 0 0.8 C -0.45 0.8 -0.8 0.45 -0.8 0 C -0.8 -0.45 -0.45 -0.8 0 -0.8 Z M 0 -0.5 L 0 0.5 M -0.5 0 L 0.5 0 M -0.35 -0.35 L 0.35 0.35 M 0.35 -0.35 L -0.35 0.35",
+
+    // Paired lancet windows
+    "M -0.45 1 L -0.45 0.1 C -0.45 -0.1 -0.35 -0.3 -0.25 -0.4 C -0.15 -0.3 -0.05 -0.1 -0.05 0.1 L -0.05 1 Z M 0.05 1 L 0.05 0.1 C 0.05 -0.1 0.15 -0.3 0.25 -0.4 C 0.35 -0.3 0.45 -0.1 0.45 0.1 L 0.45 1 Z",
+
+    // Circular window
+    "M 0 -0.6 C 0.33 -0.6 0.6 -0.33 0.6 0 C 0.6 0.33 0.33 0.6 0 0.6 C -0.33 0.6 -0.6 0.33 -0.6 0 C -0.6 -0.33 -0.33 -0.6 0 -0.6 Z",
+
+    // Triple lancet
+    "M -0.55 1 L -0.55 0.1 C -0.55 -0.1 -0.48 -0.25 -0.4 -0.35 C -0.32 -0.25 -0.25 -0.1 -0.25 0.1 L -0.25 1 Z M -0.15 1 L -0.15 0 C -0.15 -0.2 0 -0.4 0 -0.4 C 0 -0.4 0.15 -0.2 0.15 0 L 0.15 1 Z M 0.25 1 L 0.25 0.1 C 0.25 -0.1 0.32 -0.25 0.4 -0.35 C 0.48 -0.25 0.55 -0.1 0.55 0.1 L 0.55 1 Z",
+
+    // Diocletian window (semicircular)
+    "M -0.6 1 L -0.6 0.2 C -0.6 -0.2 -0.3 -0.5 0 -0.5 C 0.3 -0.5 0.6 -0.2 0.6 0.2 L 0.6 1 Z M -0.5 0.2 L 0.5 0.2",
+
+    // === FLOOR PLANS ===
+
+    // Simple nave
+    "M -0.2 -0.8 L -0.2 0.6 L -0.5 0.6 L -0.5 1 L 0.5 1 L 0.5 0.6 L 0.2 0.6 L 0.2 -0.8 Z",
+
+    // Cruciform plan
+    "M -0.15 -0.8 L -0.15 -0.2 L -0.6 -0.2 L -0.6 0.2 L -0.15 0.2 L -0.15 0.8 L 0.15 0.8 L 0.15 0.2 L 0.6 0.2 L 0.6 -0.2 L 0.15 -0.2 L 0.15 -0.8 Z",
+
+    // Apse (semicircular)
+    "M -0.3 1 L -0.3 0 C -0.3 -0.4 0 -0.6 0 -0.6 C 0 -0.6 0.3 -0.4 0.3 0 L 0.3 1 Z",
+
+    // Octagonal plan
+    "M 0 -0.8 L 0.55 -0.55 L 0.8 0 L 0.55 0.55 L 0 0.8 L -0.55 0.55 L -0.8 0 L -0.55 -0.55 Z",
+
+    // Circular plan
+    "M 0 -0.7 C 0.39 -0.7 0.7 -0.39 0.7 0 C 0.7 0.39 0.39 0.7 0 0.7 C -0.39 0.7 -0.7 0.39 -0.7 0 C -0.7 -0.39 -0.39 -0.7 0 -0.7 Z",
+
+    // Nave with aisles
+    "M -0.5 1 L -0.5 0.8 L -0.2 0.8 L -0.2 -0.6 L 0.2 -0.6 L 0.2 0.8 L 0.5 0.8 L 0.5 1 Z",
+
+    // === VAULTS ===
+
+    // Barrel vault cross-section
+    "M -0.6 1 L -0.6 0 C -0.6 -0.5 0 -0.5 0 -0.5 C 0 -0.5 0.6 -0.5 0.6 0 L 0.6 1 Z",
+
+    // Groin vault
+    "M -0.6 1 L -0.6 0.2 C -0.6 -0.2 -0.3 -0.4 0 -0.5 C 0.3 -0.4 0.6 -0.2 0.6 0.2 L 0.6 1 Z M -0.6 0.2 L 0.6 0.2",
+
+    // Ribbed vault (simplified)
+    "M -0.6 1 L -0.6 0.1 C -0.6 -0.3 -0.3 -0.5 0 -0.55 C 0.3 -0.5 0.6 -0.3 0.6 0.1 L 0.6 1 Z M 0 0.1 L 0 -0.55 M -0.3 0.1 L 0 -0.3 M 0.3 0.1 L 0 -0.3",
+
+    // Dome on drum
+    "M -0.5 1 L -0.5 0.3 C -0.5 -0.2 0 -0.6 0 -0.6 C 0 -0.6 0.5 -0.2 0.5 0.3 L 0.5 1 Z",
+
+    // Pointed vault
+    "M -0.6 1 L -0.6 0.3 C -0.6 0 -0.3 -0.3 0 -0.6 C 0.3 -0.3 0.6 0 0.6 0.3 L 0.6 1 Z",
+
+    // === BUTTRESSES ===
+
+    // Flying buttress
+    "M -0.8 1 L -0.8 0.8 L -0.6 0.8 L -0.2 0.3 L 0.2 0.3 L 0.2 1 Z M -0.8 0.8 L -0.2 0.3",
+
+    // Buttress (diagonal)
+    "M 0.1 1 L 0.1 0.2 L 0.5 0.8 L 0.5 1 Z",
+
+    // Stepped buttress
+    "M 0.1 1 L 0.1 0.7 L 0.3 0.7 L 0.3 0.5 L 0.5 0.5 L 0.5 0.3 L 0.6 0.3 L 0.6 1 Z",
+
+    // === DOORWAYS ===
+
+    // Arched doorway
+    "M -0.4 1 L -0.4 0.2 C -0.4 -0.2 0 -0.5 0 -0.5 C 0 -0.5 0.4 -0.2 0.4 0.2 L 0.4 1 Z",
+
+    // Pointed doorway
+    "M -0.35 1 L -0.35 0.1 C -0.35 -0.2 -0.15 -0.4 0 -0.5 C 0.15 -0.4 0.35 -0.2 0.35 0.1 L 0.35 1 Z",
+
+    // Doorway with columns
+    "M -0.5 1 L -0.5 0.1 L -0.3 0.1 L -0.3 0 C -0.3 -0.3 0 -0.5 0 -0.5 C 0 -0.5 0.3 -0.3 0.3 0 L 0.3 0.1 L 0.5 0.1 L 0.5 1 Z",
+
+    // === GABLES ===
+
+    // Simple gable
+    "M -0.7 1 L -0.7 0.2 L 0 -0.6 L 0.7 0.2 L 0.7 1 Z",
+
+    // Stepped gable
+    "M -0.7 1 L -0.7 0.3 L -0.5 0.3 L -0.5 0.1 L -0.3 0.1 L -0.3 -0.1 L 0 -0.4 L 0.3 -0.1 L 0.3 0.1 L 0.5 0.1 L 0.5 0.3 L 0.7 0.3 L 0.7 1 Z",
+
+    // Gable with arch
+    "M -0.7 1 L -0.7 0.2 L 0 -0.6 L 0.7 0.2 L 0.7 1 Z M -0.4 1 L -0.4 0.3 C -0.4 0 -0.2 -0.15 0 -0.2 C 0.2 -0.15 0.4 0 0.4 0.3 L 0.4 1 Z",
+
+    // === SPIRES ===
+
+    // Simple spire
+    "M -0.15 1 L -0.15 0.2 L 0 -0.8 L 0.15 0.2 L 0.15 1 Z",
+
+    // Octagonal spire
+    "M 0 -0.8 L -0.15 0 L -0.15 1 L 0.15 1 L 0.15 0 Z",
+
+    // Spire with base
+    "M -0.2 1 L -0.2 0.3 L -0.15 0.3 L 0 -0.7 L 0.15 0.3 L 0.2 0.3 L 0.2 1 Z",
+
+    // === DOMES ===
+
+    // Dome
+    "M -0.6 1 L -0.6 0.2 C -0.6 -0.4 0 -0.7 0 -0.7 C 0 -0.7 0.6 -0.4 0.6 0.2 L 0.6 1 Z",
+
+    // Onion dome
+    "M -0.4 1 L -0.4 0.2 C -0.4 -0.1 -0.3 -0.3 -0.15 -0.4 C -0.05 -0.5 0 -0.6 0 -0.7 C 0 -0.6 0.05 -0.5 0.15 -0.4 C 0.3 -0.3 0.4 -0.1 0.4 0.2 L 0.4 1 Z",
+
+    // Ribbed dome
+    "M -0.6 1 L -0.6 0.2 C -0.6 -0.4 0 -0.7 0 -0.7 C 0 -0.7 0.6 -0.4 0.6 0.2 L 0.6 1 Z M -0.6 0.2 L 0.6 0.2 M 0 0.2 L 0 -0.7",
+
+    // === TRACERY ===
+
+    // Simple tracery
+    "M 0 -0.7 C 0.39 -0.7 0.7 -0.39 0.7 0 C 0.7 0.39 0.39 0.7 0 0.7 C -0.39 0.7 -0.7 0.39 -0.7 0 C -0.7 -0.39 -0.39 -0.7 0 -0.7 Z M 0 -0.7 L 0 0.7 M -0.7 0 L 0.7 0",
+
+    // Geometric tracery
+    "M 0 -0.7 C 0.39 -0.7 0.7 -0.39 0.7 0 C 0.7 0.39 0.39 0.7 0 0.7 C -0.39 0.7 -0.7 0.39 -0.7 0 C -0.7 -0.39 -0.39 -0.7 0 -0.7 Z M 0 -0.35 L 0 0.35 M -0.35 0 L 0.35 0",
+
+    // === WALLS ===
+
+    // Crenellated wall
+    "M -0.8 1 L -0.8 0.3 L -0.6 0.3 L -0.6 0 L -0.4 0 L -0.4 0.3 L -0.2 0.3 L -0.2 0 L 0 0 L 0 0.3 L 0.2 0.3 L 0.2 0 L 0.4 0 L 0.4 0.3 L 0.6 0.3 L 0.6 0 L 0.8 0 L 0.8 1 Z",
+
+    // Wall with window
+    "M -0.7 1 L -0.7 -0.2 L -0.2 -0.2 L -0.2 0.2 C -0.2 -0.1 0 -0.3 0 -0.3 C 0 -0.3 0.2 -0.1 0.2 0.2 L 0.2 -0.2 L 0.7 -0.2 L 0.7 1 Z",
+
+    // === STAIRS ===
+
+    // Spiral stair (simplified)
+    "M -0.5 0.8 L -0.5 0.6 L -0.3 0.6 L -0.3 0.4 L -0.1 0.4 L -0.1 0.2 L 0.1 0.2 L 0.1 0 L 0.3 0 L 0.3 -0.2 L 0.5 -0.2 L 0.5 -0.4 L 0.3 -0.4 L 0.3 -0.2 L 0.1 -0.2 L 0.1 0 L -0.1 0 L -0.1 0.2 L -0.3 0.2 L -0.3 0.4 L -0.5 0.4 L -0.5 0.6 L -0.7 0.6 L -0.7 0.8 Z",
 ];
 
 function shuffle(array) {
@@ -102,46 +204,8 @@ const shuffled = shuffle(shapes);
 let currentIndex = 0;
 const shapeElement = document.getElementById('shape');
 
-function superformula(theta, params) {
-    const { m, n1, n2, n3, a, b } = params;
-    const cosVal = Math.cos(m * theta / 4) / a;
-    const sinVal = Math.sin(m * theta / 4) / b;
-    const t1 = Math.pow(Math.abs(cosVal), n2);
-    const t2 = Math.pow(Math.abs(sinVal), n3);
-    const sum = t1 + t2;
-    if (sum === 0) return 1;
-    const r = Math.pow(sum, -1 / n1);
-    if (!isFinite(r) || isNaN(r)) return 1;
-    return r;
-}
-
-function generatePath(params) {
-    const points = 360;
-    const pathPoints = [];
-    let maxR = 0;
-
-    for (let i = 0; i <= points; i++) {
-        const theta = (2 * Math.PI * i) / points;
-        const r = superformula(theta, params);
-        maxR = Math.max(maxR, r);
-        pathPoints.push({ x: r * Math.cos(theta), y: r * Math.sin(theta) });
-    }
-
-    const scale = maxR > 0 ? 1 / maxR : 1;
-    const normalized = pathPoints.map(p => ({
-        x: p.x * scale,
-        y: p.y * scale
-    }));
-
-    let d = `M ${normalized[0].x.toFixed(4)} ${normalized[0].y.toFixed(4)}`;
-    for (let i = 1; i < normalized.length; i++) {
-        d += ` L ${normalized[i].x.toFixed(4)} ${normalized[i].y.toFixed(4)}`;
-    }
-    d += ' Z';
-    return d;
-}
-
-shapeElement.setAttribute('d', generatePath(shuffled[0]));
+// Set initial shape
+shapeElement.setAttribute('d', shuffled[0]);
 
 let tapLocked = false;
 let lastTouchTime = 0;
@@ -158,7 +222,7 @@ function handleTap() {
         newOrder.forEach(s => shuffled.push(s));
     }
 
-    shapeElement.setAttribute('d', generatePath(shuffled[currentIndex]));
+    shapeElement.setAttribute('d', shuffled[currentIndex]);
 
     setTimeout(() => { tapLocked = false; }, 100);
 }
